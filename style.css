@@ -1,0 +1,539 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --primary: #ff0077;
+    --main: #000000;
+    --paragraphs: #919191;
+    --headings: white;
+    --main-2: #161616;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background: var(--main);
+    color: var(--headings);
+}
+
+body::-webkit-scrollbar{
+    display: none;
+}
+
+section{
+    height: 100vh;
+    width: 100%;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5em 1em;
+    position: sticky;
+    z-index: 999;
+}
+
+header h1{
+    font-size: 30px;
+    font-weight: 400;
+}
+
+header h1 span{
+    color: var(--primary);
+    text-transform: uppercase;
+    text-shadow: 0 0 5px var(--primary);
+}
+
+.burger{
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    cursor: pointer;
+}
+
+.line1, .line2{
+    width: 2em;
+    height: 1.5px;
+    background: var(--headings);
+    transition: .3s;
+}
+
+.toggle .line1{
+    transform: translateY(4px) rotate(135deg);
+}
+
+.toggle .line2{
+    transform: translateY(-4px) rotate(-135deg);
+}
+
+nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--main);
+    z-index: 1;
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: .3s;
+}
+
+.active{
+    opacity: 1;
+    pointer-events: all;
+}
+
+.logos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    width: 30%;
+}
+
+.logos a{
+    text-decoration: none;
+    color: var(--headings);
+    font-size: 2.2rem;
+    transform: translateX(-60px);
+    opacity: 0;
+    transition: .3s;
+}
+
+.logos a:hover{
+    color: var(--primary);
+}
+
+nav ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    width: 35%;
+}
+
+nav ul li{
+    list-style: none;
+    transform: translateY(60px);
+    opacity: 0;
+    transition: .3s;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: var(--headings);
+    font-size: 3rem;
+    font-weight: 200;
+    position: relative;
+    padding: .5em .2em;
+    transition: .3s;
+}
+
+
+nav ul li a::after{
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 2px;
+    bottom: 20%;
+    left: 3%;
+    background: var(--headings);
+    border-radius: .5em;
+    transition: .5s;
+}
+
+nav ul li a:hover{
+    color: var(--primary);
+}
+
+nav ul li a:hover::after{
+    width: 60%;
+    background: var(--primary);
+}
+
+/* Hero-section */
+
+.s1{
+    overflow: hidden;
+}
+.c1{
+    position: relative;
+}
+
+.hero-sec{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 80vh;
+}
+
+.hero-sec-content{
+    animation: animateX 1s .4s linear forwards;
+    opacity: 0;
+}
+
+@keyframes animateX{
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+.hero-sec-content h1{
+    font-size: 5rem;
+    font-weight: 500;
+    margin-bottom: .3em;
+}
+
+.hero-sec-content p{
+    max-width: 30em;
+    font-weight: 200;
+    color: var(--paragraphs);
+    margin-bottom: 2em;
+    font-size: 1.1rem;
+}
+
+.hero-sec-content button{
+    font-size: 1.6rem;
+    font-weight: 500;
+    padding: .7em 1.7em;
+    border-radius: .3em;
+    border: none;
+    background: var(--primary);
+    cursor: pointer;
+}
+
+.hero-sec-img{
+    background: linear-gradient(0deg, #00000042, #00000042), url(./images/port.jpg);
+    background-size: cover;
+    background-position: bottom;
+    width: 30em;
+    height: 40em;
+    border-radius: .5em;
+    animation: animateY 1s linear forwards;
+}
+
+@keyframes animateY {
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+.green{
+    position: absolute;
+    width: 180%;
+    height: 60em;
+    background: var(--primary);
+    left: -1%;
+    bottom: -55%;
+    transform: rotate(-30deg);
+    z-index: -999;
+}
+
+/* Second Page */
+
+.s2{
+    background: var(--main);
+}
+
+.c2{
+    padding: .8em;
+}
+
+.sec-sect .services{
+    padding-top: 4em;
+    font-weight: 200;
+    font-size: 1.1rem;
+    color: var(--paragraphs);
+}
+
+.sec-sect h1{
+    font-size: 3.5rem;
+    font-weight: 400;
+    color: var(--primary);
+    margin-bottom: 1em;
+    position: relative;
+}
+
+.sec-sect h1:after{
+    height: 2px;
+    content: '';
+    width: 2.3em;
+    background: var(--primary);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.set{
+    display: flex;
+    gap: 2em;
+}
+
+.set1{
+    margin-bottom: 4.5em;
+}
+
+.skill{
+    background: var(--main-2);
+    border-radius: .6em;
+    padding: 2em 1.5em;
+    transition: .4s;
+}
+
+.skill i{
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-top: 2em;
+    margin-bottom: .3em;
+    transition: .3s;
+}
+
+.skill h2{
+    font-size: 1.9rem;
+    font-weight: 300;
+    margin-bottom: .6em;
+}
+
+.skill p{
+    color: var(--paragraphs);
+    font-weight: 200;
+}
+
+.skill:hover{
+    background: var(--primary);
+    color: var(--main);
+    cursor: pointer;
+}
+
+.skill:hover p{
+    color: var(--main);
+    font-weight: 300;
+}
+
+.skill:hover i{
+    color: var(--main);
+}
+
+/* third Page */
+
+.s3{
+    background: var(--main);
+}
+
+.c3{
+    padding: 0 1.2em;
+}
+
+.featured{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.featured-info{
+    padding-top: 4em;
+}
+
+.featured-info h2{
+    font-size: 3rem;
+    font-weight: 400;
+    margin-bottom: .1em;
+}
+
+.featured-info p{
+    color: var(--paragraphs);
+    font-weight: 200;
+}
+
+.featured button{
+    padding: .7em 1.8em;
+    border: none;
+    border-radius: .3em;
+    background: var(--primary);
+    cursor: pointer;
+    margin-top: 2em;
+}
+
+.featured button a{
+    color: var(--main);
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.p1{
+    margin-top: 3.5em;
+}
+
+.project{
+    display: flex;
+    justify-content: space-around;
+}
+
+.project-info{
+    width: 45%;
+}
+
+.project-img{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--main-2);
+    padding: 2em 0;
+    border-radius: .5em;
+    margin-bottom: .5em;
+}
+
+.project-img img,
+.project-img video{
+    width: 75%;
+    border-radius: .3em;
+    transition: .5s;
+    box-shadow: -2px 3px 20px black;
+}
+
+.project-img img:hover,
+.project-img video:hover{
+    transform: scale(1.7);
+    border: 1px solid var(--primary);
+    cursor: pointer;
+}
+
+.project-info h3{
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.project-info p{
+    display: flex;
+    align-items: center;
+    gap: .1em;
+    color: var(--primary);
+    transition: .5s;
+}
+
+.project-info p i{
+    font-size: 1.3em;
+}
+
+.project-info p:hover{
+    gap: .4em;
+}
+
+
+
+
+/* Fourth page */
+.s4{
+    background: var(--main);
+}
+
+.c4{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 1em;
+    height: 100%;
+}
+
+.c4 p{
+    font-size: 1.4rem;
+    font-weight: 200;
+    color: var(--paragraphs);
+    margin-bottom: .7em;
+}
+
+.c4 h1{
+    font-size: 4rem;
+    font-weight: 400;
+    color: var(--primary);
+    margin-bottom: 1em;
+}
+
+.inputBox{
+    width: 55%;
+    position: relative;
+}
+
+.inputBox input{
+    font-size: 1.5rem;
+    width: 100%;
+    padding: 1.3em 1em;
+    border: none;
+    outline: none;
+    background: var(--main-2);
+    margin-bottom: 1.3em;
+    border-radius: .2em;
+    color: var(--headings);
+    transition: .5s;
+}
+
+.inputBox span{
+    position: absolute;
+    z-index: 2;
+    left: 8%;
+    font-size: 1.7em;
+    letter-spacing: 1px;
+    color: var(--paragraphs);
+    top: 20%;
+    transition: .5s;
+    padding: 0 .2em;
+    border-radius: .3em;
+    pointer-events: none;
+    font-weight: 300;
+}
+
+.inputBox input:focus,
+.inputBox input:valid{
+    border: 1px solid var(--primary);
+    box-shadow: 0 0 15px var(--primary);
+}
+
+.inputBox input:focus ~ span,
+.inputBox input:valid ~ span{
+    transform: translateY(-40px) translateX(-20px);
+    background: var(--primary);
+    color: var(--main);
+}
+
+.c4 button{
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    gap: .3em;
+    padding: .8em 1.5em;
+    border: none;
+    border-radius: .3em;
+    margin-top: 1em;
+    background: var(--primary);
+    cursor: pointer;
+}
+
+.c4 button i{
+    font-size: 2.4rem;
+}
